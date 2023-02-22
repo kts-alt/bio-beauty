@@ -17,4 +17,4 @@ img = cv2.imread(img_path)
 
 plt.imshow(img)
 
-objs = DeepFace.analyze(img_path, actions)
+objs = DeepFace.analyze(img_path, actions, enforce_detection=False)
