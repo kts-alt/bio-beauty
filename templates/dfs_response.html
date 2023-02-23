@@ -5,13 +5,18 @@
 <img src="static/images/saved_img.jpg" alt="">
 <p>Based on your analysis here are some recommended products:</p>
 <div>
-    <p>Content 1</p>
+    <p>{{ value[0]['dominant_race'] }}</p>
 </div>
 <div>
-    <p>Content 2</p>
+{% if value[0]['dominant_gender'] == 'Man' %}
+    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_G28KR3_640x640_0.jpg" alt="">
+    <a href="https://www.esteelauder.com/product/630/110702/product-catalog/sets-gifts/fragrance-sets-gifts/beautiful-magnolia/dare-to-love-valentines-day-set">Dare to Love fragrance set</a>
+{% else %}
+    <li>render something else</li>
+{% endif %}
 </div>
 <div>
-    <p>Content 3</p>
+    <p>{{ value[0]['dominant_emotion'] }}</p>
 </div>
 
 
