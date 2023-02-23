@@ -4,17 +4,14 @@ except Exception as e:
     print("first init failed")
 
 from deepface import DeepFace
-print("init...")    
-
-import cv2
-import matplotlib.pyplot as plt
+print("initialized")    
 
 img_path = "static/images/saved_img.jpg"
-# if img_path has a value, create a function that runs the deepface function. If no value
 actions = ['age', 'gender', 'race', 'emotion']
 
-img = cv2.imread(img_path)
-
-plt.imshow(img)
-
 objs = DeepFace.analyze(img_path, actions, enforce_detection=False)
+
+if objs[0]['dominant_gender'] == 'Man':
+    print("We've got a guy over here!")
+else:
+    print("We've guy a girl over here!")

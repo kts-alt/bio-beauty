@@ -21,7 +21,7 @@ def run_deepface():
     file = open(r'dfs.py', 'r').read()
     print('My dictionary:', objs)
     return render_template('dfs_response.html', results=exec(file), value=objs)
-# If the user inputs an invalid picture, prompt user to take another picture. Redirect to webcam. Continue this until user submits a valid picture. 
+
   
 
 
