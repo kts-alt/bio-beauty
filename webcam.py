@@ -45,3 +45,4 @@ while True:
         cv2.destroyAllWindows()
         break
     
+# When a user click's on Q, the webcam closes. Need to wrap the py file into a function. If I return a false value, then render page fail. 

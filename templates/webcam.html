@@ -2,5 +2,6 @@
 
 {% block main %}
 <p>Your picture was successfully taken!</p>
-<li><a href="{{ url_for('run_deepface') }}">Results</a></li>
+<a href="{{ url_for('run_deepface') }}"><button type="button" class="btn btn-success">Results</button></a>
+
 {% endblock %}

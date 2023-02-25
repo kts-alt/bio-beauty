@@ -11,6 +11,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/instructions')
+def instructions():
+    return render_template('instructions.html')
+
 @app.route('/webcam')
 def webcam():
     file = open(r'webcam.py', 'r').read()
