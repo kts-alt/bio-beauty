@@ -1,5 +1,5 @@
 from app import app
-from dfs import objs, run_dfs
+from dfs import run_dfs
 from flask import render_template
 
 @app.route('/')

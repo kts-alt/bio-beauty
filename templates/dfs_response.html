@@ -1,41 +1,85 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h3>{{ value }}</h3>
+<div class="container text-center">
+    <h3>Dominant Emotion: {{ value[0]['dominant_emotion'] }}</h3>
+    <h3>{{ value[0]['emotion'] }}</h3>
 <img src="static/images/saved_img.jpg" alt="">
 <h3>Based on your analysis here are some recommended products:</h3>
-<div>
-{% if value[0]['age'] < 30 %}    
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_R6C801_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/687/35783/product-catalog/skincare/masks/advanced-night-repair/concentrated-recovery-powerfoil-mask">Advanced Night Repair
-        Concentrated Recovery PowerFoil Mask</a>
-{% else %}
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PMXW01_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/688/97386/product-catalog/skincare/moisturizer/revitalizing-supreme-moisturizer/youth-power-creme">Revitalizing Supreme+ Moisturizer
-        Youth Power Creme</a>
-{% endif %}
+    <div class="container text-center">
+    {% if value[0]['age'] < 30 %}    
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_R6C801_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">Advanced Night Repair
+            Concentrated Recovery PowerFoil Mask</h5>
+        <p class="card-text">Advanced Night Repair
+            Concentrated Recovery PowerFoil Mask</p>
+        <a href="https://www.esteelauder.com/product/687/35783/product-catalog/skincare/masks/advanced-night-repair/concentrated-recovery-powerfoil-mask" class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% else %}
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PMXW01_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">Revitalizing Supreme+ Moisturizer
+            Youth Power Creme</h5>
+        <p class="card-text">Revitalizing Supreme+ Moisturizer
+            Youth Power Creme</p>
+        <a href="https://www.esteelauder.com/product/688/97386/product-catalog/skincare/moisturizer/revitalizing-supreme-moisturizer/youth-power-creme" class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% endif %}
+    </div>
+    <div>
+    {% if value[0]['dominant_gender'] == 'Man' %}
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_181601_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">lauder For Men
+            Cologne Spray</h5>
+        <p class="card-text">lauder For Men
+            Cologne Spray</p>
+        <a href="https://www.esteelauder.com/product/8257/2034/product-catalog/fragrance/fragrance-collections/for-men/lauder-for-men/cologne-spray?size=3.4_oz." class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% else %}
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_G24001_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">Ignite Your Radiance
+            Even-Tone + Plump + Brighten Skincare Set</h5>
+        <p class="card-text">Ignite Your Radiance
+            Even-Tone + Plump + Brighten Skincare Set</p>
+        <a href="https://www.esteelauder.com/product/707/110695/product-catalog/sets-gifts/skincare-sets-gifts/ignite-your-radiance/even-tone-plump-brighten-skincare-set" class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% endif %}
+    </div>
+    <div>
+    {% if value[0]['dominant_emotion'] == 'happy' %}
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GWW301_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">Whimsical Fox
+            Perfume Compact</h5>
+        <p class="card-text">Whimsical Fox
+            Perfume Compact</p>
+        <a href="https://www.esteelauder.com/product/630/105806/product-catalog/sets-gifts/fragrance-sets-gifts/whimsical-fox/perfume-compact-by-monica-rich-kosann" class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% else %}
+        <div class="card border-primary mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PRGF01_640x640_0.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">Tender Light
+            Eau de Parfum Spray</h5>
+        <p class="card-text">Tender Light
+            Eau de Parfum Spray</p>
+        <a href="https://www.esteelauder.com/product/31561/89004/product-catalog/fragrance/fragrance-collections/luxury-fragrance-collection/tender-light/eau-de-parfum-spray" class="btn btn-primary">Shop now</a>
+        </div>
+        </div>
+    {% endif %}
+    </div>
 </div>
-<div>
-{% if value[0]['dominant_gender'] == 'Man' %}
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_181601_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/8257/2034/product-catalog/fragrance/fragrance-collections/for-men/lauder-for-men/cologne-spray?size=3.4_oz.">Lauder For Men
-        Cologne Spray</a>
-{% else %}
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_G24001_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/707/110695/product-catalog/sets-gifts/skincare-sets-gifts/ignite-your-radiance/even-tone-plump-brighten-skincare-set">Ignite Your Radiance
-        Even-Tone + Plump + Brighten Skincare Set</a>
-{% endif %}
-</div>
-<div>
-{% if value[0]['dominant_emotion'] == 'Happy' %}
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GWW301_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/630/105806/product-catalog/sets-gifts/fragrance-sets-gifts/whimsical-fox/perfume-compact-by-monica-rich-kosann">Whimsical Fox
-        Perfume Compact</a>
-{% else %}
-    <img src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PRGF01_640x640_0.jpg" alt="">
-    <a href="https://www.esteelauder.com/product/31561/89004/product-catalog/fragrance/fragrance-collections/luxury-fragrance-collection/tender-light/eau-de-parfum-spray">Tender Light
-        Eau de Parfum Spray</a>
-{% endif %}
-</div>
-
 {% endblock %}
