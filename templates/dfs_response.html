@@ -2,8 +2,27 @@
 
 {% block main %}
 <div class="container text-center">
-    <h3>Dominant Emotion: {{ value[0]['dominant_emotion'] }}</h3>
+    <div style="width:25%; height:25%"">
+        <canvas id="myChart" width="50" height="50"></canvas>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+          labels: ['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral'], 
+        datasets: [{
+            label: '% of Emotion',
+            data: ["{{value[0].emotion.angry}}", "{{value[0].emotion.disgust}}", "{{value[0].emotion.fear}}", "{{value[0].emotion.happy}}", "{{value[0].emotion.sad}}", "{{value[0].emotion.surprise}}", "{{value[0].emotion.neutral}}"], // Data on Y axis
+            borderWidth: 1
+          }]
+      }
+    });
+        </script>
+    <h3>BioBeauty thinks you are: {{ value[0]['dominant_emotion'] }}</h3>
     <h3>{{ value[0]['emotion'] }}</h3>
+    <h3>{{ value[0]['emotion']['angry'] }}</h3>
 <img src="static/images/saved_img.jpg" alt="">
 <h3>Based on your analysis here are some recommended products:</h3>
     <div class="container text-center">
@@ -31,7 +50,7 @@
         </div>
     {% endif %}
     </div>
-    <div>
+    <div class="container">
     {% if value[0]['dominant_gender'] == 'Man' %}
         <div class="card border-primary mb-3" style="width: 18rem;">
         <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_181601_640x640_0.jpg" alt="Card image cap">
@@ -46,38 +65,38 @@
     {% else %}
         <div class="card border-primary mb-3" style="width: 18rem;">
         <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_G24001_640x640_0.jpg" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title">Ignite Your Radiance
-            Even-Tone + Plump + Brighten Skincare Set</h5>
-        <p class="card-text">Ignite Your Radiance
-            Even-Tone + Plump + Brighten Skincare Set</p>
-        <a href="https://www.esteelauder.com/product/707/110695/product-catalog/sets-gifts/skincare-sets-gifts/ignite-your-radiance/even-tone-plump-brighten-skincare-set" class="btn btn-primary">Shop now</a>
-        </div>
-        </div>
+            <div class="card-body">
+            <h5 class="card-title">Ignite Your Radiance
+                Even-Tone + Plump + Brighten Skincare Set</h5>
+            <p class="card-text">Ignite Your Radiance
+                Even-Tone + Plump + Brighten Skincare Set</p>
+            <a href="https://www.esteelauder.com/product/707/110695/product-catalog/sets-gifts/skincare-sets-gifts/ignite-your-radiance/even-tone-plump-brighten-skincare-set" class="btn btn-primary">Shop now</a>
+            </div>
     {% endif %}
+        </div>
     </div>
-    <div>
+    <div class="container">
     {% if value[0]['dominant_emotion'] == 'happy' %}
         <div class="card border-primary mb-3" style="width: 18rem;">
         <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_GWW301_640x640_0.jpg" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title">Whimsical Fox
-            Perfume Compact</h5>
-        <p class="card-text">Whimsical Fox
-            Perfume Compact</p>
-        <a href="https://www.esteelauder.com/product/630/105806/product-catalog/sets-gifts/fragrance-sets-gifts/whimsical-fox/perfume-compact-by-monica-rich-kosann" class="btn btn-primary">Shop now</a>
-        </div>
+            <div class="card-body">
+            <h5 class="card-title">Whimsical Fox
+                Perfume Compact</h5>
+            <p class="card-text">Whimsical Fox
+                Perfume Compact</p>
+            <a href="https://www.esteelauder.com/product/630/105806/product-catalog/sets-gifts/fragrance-sets-gifts/whimsical-fox/perfume-compact-by-monica-rich-kosann" class="btn btn-primary">Shop now</a>
+            </div>
         </div>
     {% else %}
         <div class="card border-primary mb-3" style="width: 18rem;">
         <img class="card-img-top" src="https://www.esteelauder.com/media/export/cms/products/640x640/el_sku_PRGF01_640x640_0.jpg" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title">Tender Light
-            Eau de Parfum Spray</h5>
-        <p class="card-text">Tender Light
-            Eau de Parfum Spray</p>
-        <a href="https://www.esteelauder.com/product/31561/89004/product-catalog/fragrance/fragrance-collections/luxury-fragrance-collection/tender-light/eau-de-parfum-spray" class="btn btn-primary">Shop now</a>
-        </div>
+            <div class="card-body">
+            <h5 class="card-title">Tender Light
+                Eau de Parfum Spray</h5>
+            <p class="card-text">Tender Light
+                Eau de Parfum Spray</p>
+            <a href="https://www.esteelauder.com/product/31561/89004/product-catalog/fragrance/fragrance-collections/luxury-fragrance-collection/tender-light/eau-de-parfum-spray" class="btn btn-primary">Shop now</a>
+            </div>
         </div>
     {% endif %}
     </div>
