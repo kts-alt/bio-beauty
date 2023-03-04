@@ -2,9 +2,18 @@
 
 {% block main %}
 <div class="container text-center">
-    <div style="width:25%; height:25%"">
-        <canvas id="myChart" width="50" height="50"></canvas>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div style="width:90%; height:90%">
+          <canvas id="myChart" width="50" height="50"></canvas>
+        </div>
+      </div>
+      <div class="col-4">
+          <img src="static/images/saved_img.jpg" alt="your image">
+      </div>
     </div>
+  </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -20,8 +29,8 @@
       }
     });
         </script>
-    <h3>BioBeauty thinks you feel: {{ value[0]['dominant_emotion'] }}</h3>
-<img src="static/images/saved_img.jpg" alt="">
+<h3>BioBeauty thinks you feel: {{ value[0]['dominant_emotion'] }}</h3>
+<hr>
 <h3>Based on your analysis here are some recommended products:</h3>
 <div class="card-group">
     {% if value[0]['age'] < 30 %}
